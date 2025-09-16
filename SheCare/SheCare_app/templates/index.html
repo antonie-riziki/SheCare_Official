@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheCare - Your Private AI Health Companion on WhatsApp</title>
+    <meta name="description" content="SheCare is an AI-powered women's health assistant on WhatsApp. Check symptoms privately, find trusted clinics, and get health guidance - no downloads needed.">
+    <meta name="author" content="SheCare">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SheCare - Your Private AI Health Companion on WhatsApp">
+    <meta property="og:description" content="AI-powered women's health support through WhatsApp. Private, simple, supportive.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+    <style>
+        /* CSS Variables - SheCare Brand Colors */
+        :root {
+            --bg-beige: #f9f6f1;
+            --primary-coral: #FF5C8D;
+            --secondary-purple: #9B5DE5;
+            --accent-teal: #00C2A8;
+            --black: #000000;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-600: #6b7280;
+            --gray-800: #1f2937;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--bg-beige);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        .heading-font {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        
+        /* Base nav styles */
+        .site-header {
+          background: #fff;
+          padding: 0.8rem 1rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+          position: fixed;
+          z-index: 1000;
+          width: 100%;
+        }
+        
+        .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .main-nav ul {
+          display: flex;
+          gap: 1.5rem;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        
+        .main-nav ul li a {
+          text-decoration: none;
+          color: #333;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+        
+        .main-nav ul li a:hover {
+          color: var(--accent-teal); /* use your theme color */
+        }
+        
+        /* Mobile button (hidden on desktop) */
+        .mobile-menu-btn {
+          display: none;
+          font-size: 2rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+        
+        /* Mobile view */
+        @media (max-width: 768px) {
+          .mobile-menu-btn {
+            display: block;
+          }
+        
+          .main-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 50%;
+            max-width: 200px;
+            background: #fff;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease-in-out;
+            padding: 2rem;
+          }
+        
+          .main-nav ul {
+            flex-direction: column;
+            gap: 1.2rem;
+          }
+        
+          .main-nav.open {
+            right: 0;
+          }
+        }
+
+
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .container { padding: 0 2rem; }
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .section { padding: 6rem 0; }
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-coral);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 92, 141, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--accent-teal);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animation Classes */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideRight 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Section-specific Styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+        }
+
+        .whatsapp-section {
+            background: var(--secondary-purple);
+            color: var(--white);
+        }
+
+        .mission-section {
+            background: var(--accent-teal);
+            color: var(--white);
+        }
+
+        /* TESTIMONIALS SECTION FIX */
+        .testimonials-section {
+          background: rgba(255, 255, 255, 0.5);
+          padding: 2rem 1rem;
+          overflow-x: hidden; /* prevent horizontal scrolling */
+        }
+        
+        /* CONTAINER FLEXIBLE GRID */
+/*         .testimonials-container {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+        } */
+        
+        @media (min-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        /* INDIVIDUAL CARD */
+        .testimonial-card {
+          background: #fff;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          width: 100%;        /* responsive width */
+          max-width: 100%;    /* force fit in mobile */
+          word-wrap: break-word; /* avoid long text breaking layout */
+          box-sizing: border-box;
+        }
+
+
+
+        /* Feature Icons */
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 92, 141, 0.1);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary-coral);
+        }
+
+        /* Step Cards */
+        .steps-container {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .steps-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-coral);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            background: var(--white);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            border: none;
+            background: none;
+            text-align: left;
+            font-weight: 1000;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-600);
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-coral);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 92, 141, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-coral); }
+        .text-gray { color: var(--gray-600); }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mt-4 { margin-top: 2rem; }
+        .p-4 { padding: 2rem; }
+        .rounded { border-radius: 0.5rem; }
+        .shadow { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <div class="logo">
+          <img src="images/logo.png" alt="SheCare Logo" style="height: 70px;" />
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#howitworks">How it works</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#joinus">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>         
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation">
+          ☰
+        </button>
+      </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="padding-top: 90px;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="hero-content animate-fade-in">
+                    <h1 class="heading-font mb-3">
+                        SheCare: Your Private AI Health Companion – 
+                        <span class="text-primary">On WhatsApp</span>
+                    </h1>
+                    <p class="mb-4" style="font-size: 1.1rem; color: var(--gray-600);">
+                        Because women's health shouldn't wait. SheCare is an AI-powered assistant built for women - 
+                        accessible anytime via WhatsApp. We help you check symptoms, find trusted clinics, and get 
+                        health guidance in a private, simple, and supportive way. No downloads. No stigma. 
+                        Just care - on your terms.
+                    </p>
+                    <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
+" target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
+                        <i class="fab fa-whatsapp"></i>
+                        <span> Talk to SheCare</span>
+                    </a>
+                </div>
+                <div class="hero-image animate-slide-right">
+                  <img src="images/4.png" 
+                       alt="SheCare AI chat conversation mockup" 
+                       style="border-radius: 1rem; height: 100%;">
+                </div>
+
+                    <!-- <img src="./images/sheCare mockup.jpeg" 
+                         alt="Woman using WhatsApp" 
+                         style="border-radius: 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">What You Can Do With SheCare</h2>
+            </div>
+            <div class="grid grid-2">
+                <div class="animate-slide-left">
+                    <div style="display: grid; gap: 2rem;">
+                        <div style="display: flex; align-items: start;">
+                            <div class="feature-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div style="margin-left: 1rem;">
+                                <h3 class="heading-font mb-1">Check Symptoms Privately</h3>
+                                <p class="text-gray">Get confidential health assessments in a safe space</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start;">
+                            <div class="feature-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div style="margin-left: 1rem;">
+                                <h3 class="heading-font mb-1">Find Nearby Clinics</h3>
+                                <p class="text-gray">Locate trusted healthcare providers in your area</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start;">
+                            <div class="feature-icon">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div style="margin-left: 1rem;">
+                                <h3 class="heading-font mb-1">Get Daily Health Tips</h3>
+                                <p class="text-gray">Receive personalized wellness guidance</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start;">
+                            <div class="feature-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div style="margin-left: 1rem;">
+                                <h3 class="heading-font mb-1">Join a Safe Support Community</h3>
+                                <p class="text-gray">Connect with other women on their health journey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-slide-right">
+                  <img src="images/5.png" 
+                       alt="SheCare Features card" 
+                       style="max-width: 100%; border-radius: 1rem; display: block; margin: 0 auto; height: 580px;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section class="section whatsapp-section">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="animate-slide-left">
+                    <img src="./images/sheCare mockup 2.png" 
+                         alt="Woman using WhatsApp" 
+                         style="border-radius: 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
+                </div>
+                <div class="animate-slide-right">
+                    <h2 class="heading-font mb-3">Why WhatsApp? Because It Works.</h2>
+                    <div style="font-size: 1.1rem; line-height: 1.8;">
+                        <p style="margin-bottom: 1.5rem;">
+                            In Kenya, WhatsApp isn't just an app – it's how we communicate. With over 
+                            <strong>90% of smartphone users</strong> already on WhatsApp, SheCare meets 
+                            women where they are.
+                        </p>
+                        <p style="margin-bottom: 1.5rem;">
+                            No new downloads. No complicated signups. No learning curves. Just send a 
+                            message and get the health support you deserve, instantly.
+                        </p>
+                        <p>
+                            Your conversations are private, secure, and encrypted end-to-end. Because 
+                            your health conversations should stay between you and SheCare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="howitworks" class="section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">How It Works</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+                    Getting health support with SheCare is as simple as sending a WhatsApp message
+                </p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-card animate-fade-in">
+                    <div class="step-number">01</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="message-circle" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <h3 class="heading-font">Say Hello on WhatsApp</h3>
+                    </div>
+                    <p class="text-gray">Start a conversation with SheCare on your familiar WhatsApp</p>
+                </div>
+                
+                <div class="step-card animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="step-number">02</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="file-text" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <h3 class="heading-font">Share Your Symptoms</h3>
+                    </div>
+                    <p class="text-gray">Describe what you're experiencing in your own words</p>
+                </div>
+                
+                <div class="step-card animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="step-number">03</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="brain" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <h3 class="heading-font">Get AI Guidance</h3>
+                    </div>
+                    <p class="text-gray">Receive personalized health insights and recommendations</p>
+                </div>
+                
+                <div class="step-card animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="step-number">04</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="map-pin" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <h3 class="heading-font">Find Clinics</h3>
+                    </div>
+                    <p class="text-gray">Get referrals to trusted healthcare providers near you</p>
+                </div>
+                
+                <div class="step-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="step-number">05</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="users" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <h3 class="heading-font">Join the Circle</h3>
+                    </div>
+                    <p class="text-gray">Connect with a supportive community of women</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">Built for Privacy. Designed with Care.</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+                    Your health information deserves the highest level of protection and respect
+                </p>
+            </div>
+            
+            <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="text-center animate-fade-in" style="border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i data-lucide="lock" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
+                    </div>
+                    <h3 class="heading-font mb-2">Encrypted Chats</h3>
+                    <p class="text-gray">All conversations are protected with end-to-end encryption, just like regular WhatsApp messages</p>
+                </div>
+                
+                <div class="text-center animate-fade-in" style="animation-delay: 0.1s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i data-lucide="heart" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
+                    </div>
+                    <h3 class="heading-font mb-2">Ethical AI</h3>
+                    <p class="text-gray">Our AI is trained on diverse, inclusive datasets and follows strict ethical guidelines for women's health</p>
+                </div>
+                
+                <div class="text-center animate-fade-in" style="animation-delay: 0.2s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <i data-lucide="shield" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
+                    </div>
+                    <h3 class="heading-font mb-2">Compliance First</h3>
+                    <p class="text-gray">We adhere to international healthcare privacy standards and local data protection regulations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="impact" class="section testimonials-section">
+        <div class="testimonials-container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">Real Impact. Real Lives.</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+                    See how SheCare is making a difference in women's lives across Kenya
+                </p>
+            </div>
+            
+            <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); max-width: 800px; margin: 0 auto;">
+                <div class="testimonial-card animate-fade-in">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <img src="https://images.unsplash.com/photo-1668752741330-8adc5cef7485?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Aisha M." 
+                             style="width: 4rem; height: 4rem; border-radius: 50%; object-fit: cover; margin-right: 1rem;">
+                        <div>
+                            <h4 class="heading-font">Aisha M.</h4>
+                            <p class="text-gray">Nairobi</p>
+                        </div>
+                    </div>
+                    <blockquote>
+                        "SheCare helped me understand my symptoms when I was too scared to go to the doctor. The advice was so helpful and made me feel confident about seeking treatment."
+                    </blockquote>
+                </div>
+                
+                <div class="testimonial-card animate-fade-in" style="animation-delay: 0.2s;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <img src="https://plus.unsplash.com/premium_photo-1664910831068-a561e3657ee9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Grace K." 
+                             style="width: 4rem; height: 4rem; border-radius: 50%; object-fit: cover; margin-right: 1rem;">
+                        <div>
+                            <h4 class="heading-font">Grace K.</h4>
+                            <p class="text-gray">Mombasa</p>
+                        </div>
+                    </div>
+                    <blockquote>
+                        "I love that I can ask any health question privately. SheCare never judges and always provides clear, helpful guidance. It's like having a health expert as a friend."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">Frequently Asked Questions</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-600);">
+                    Everything you need to know about SheCare
+                </p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item animate-fade-in">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need to install anything to use SheCare?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        No! SheCare works through WhatsApp, which you already have. Simply send a message to our WhatsApp number and start chatting. No downloads, no new apps, no hassle.
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in" style="animation-delay: 0.1s;">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can SheCare replace my doctor?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        SheCare is designed to complement, not replace, professional medical care. We provide health guidance, symptom assessment, and clinic referrals, but always recommend seeing a healthcare provider for proper diagnosis and treatment.
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in" style="animation-delay: 0.2s;">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What languages does SheCare support?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        SheCare currently supports English and Kiswahili. We're working on adding more local languages to better serve women across Kenya and East Africa.
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in" style="animation-delay: 0.3s;">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How private are my conversations with SheCare?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Completely private. All conversations are encrypted end-to-end through WhatsApp. We never share your personal health information and follow strict privacy protocols to protect your data.
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-in" style="animation-delay: 0.4s;">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is SheCare free to use?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        Yes! SheCare's basic health guidance and support are completely free. You only pay standard WhatsApp messaging rates through your mobile operator.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="joinus" class="section mission-section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">Join Our Mission</h2>
+                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    Help us revolutionize women's healthcare accessibility across Africa
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card animate-fade-in" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                            <i data-lucide="microscope" style="color: var(--white);"></i>
+                        </div>
+                        <h3 class="heading-font" style="color: var(--white);">For Researchers & Developers</h3>
+                    </div>
+                    <p style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
+                        Collaborate with us to advance AI in women's health. Contribute to ethical AI development, 
+                        research women's health data patterns, and help build solutions that matter.
+                    </p>
+                    <a href="#" class="btn btn-outline">Partner With Us</a>
+                </div>
+                
+                <div class="card animate-fade-in" style="animation-delay: 0.1s; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 3rem; height: 3rem; background: rgba(255, 255, 255, 0.2); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                            <i data-lucide="dollar-sign" style="color: var(--white);"></i>
+                        </div>
+                        <h3 class="heading-font" style="color: var(--white);">For Funders & Partners</h3>
+                    </div>
+                    <p style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
+                        Invest in scalable healthcare solutions that can reach millions of women across Africa. 
+                        Join us in creating sustainable impact in underserved communities.
+                    </p>
+                    <a href="#" class="btn btn-outline">Fund Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="text-center mb-4 animate-fade-in">
+                <h2 class="heading-font mb-3">Let's Build SheCare Together</h2>
+                <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+                    Ready to join our mission? Get in touch and let's create something amazing for women's health.
+                </p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="animate-slide-left">
+                    <h3 class="heading-font mb-3">Get in Touch</h3>
+                    
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i data-lucide="mail" style="color: var(--primary-coral);"></i>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600;">Email</p>
+                            <a href="mailto:shecare.womenhealth@gmail.com" style="color: var(--primary-coral); text-decoration: none;">
+                                shecare.womenhealth@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i data-lucide="phone" style="color: var(--primary-coral);"></i>
+                        </div>
+                        <div>
+                            <p style="font-weight: 600;">Phone</p>
+                            <a href="tel:+254706954530" style="color: var(--primary-coral); text-decoration: none;">
+                                +254 706 954530
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem;">Office Hours</h4>
+                        <p class="text-gray">Monday - Friday: 9:00 AM - 6:00 PM EAT</p>
+                        <p class="text-gray">Weekend: Emergency support available</p>
+                    </div>
+                </div>
+                
+                <div class="animate-slide-right">
+                    <form class="card">
+                        <div style="display: grid; gap: 1rem; grid-template-columns: 1fr 1fr;">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" class="form-input" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" class="form-input" placeholder="Your last name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-input" placeholder="What's this about?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-input form-textarea" placeholder="Tell us more about your inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Toggle navigation when clicked
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+          const mainNav = document.querySelector(".main-nav");
+          const navLinks = document.querySelectorAll(".main-nav a");
+        
+          // Toggle menu open/close
+          mobileMenuBtn.addEventListener("click", () => {
+            mainNav.classList.toggle("open");
+          });
+        
+          // Close menu when a nav link is clicked
+          navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+              mainNav.classList.remove("open");
+            });
+          });
+        
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-left, .animate-slide-right');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        });
+
+        // FAQ toggle functionality
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Close other open FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(el => {
+                if (el !== answer) {
+                    el.classList.remove('active');
+                    el.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
