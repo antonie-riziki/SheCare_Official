@@ -33,8 +33,44 @@
     <!-- For Apple/Android devices -->
     <link rel="apple-touch-icon" href="https://shecare-nu.vercel.app/images/logo.png">
     <link rel="shortcut icon" href="https://shecare-nu.vercel.app/images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     
 </head>
+
+
+
+<style>
+
+.hero-swiper {
+  width: 100%;
+  height: 80vh; /* adjust depending on how tall you want the hero */
+}
+
+.hero-swiper .swiper-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;                /* so text centers nicely */
+  align-items: center;
+  justify-content: center;
+  color: white;                 /* make overlay text visible */
+  text-align: center;
+  position: relative;
+}
+
+.hero-swiper .slide-content {
+  background: rgba(0, 0, 0, 0.5); /* dark overlay behind text */
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+
+
+</style>
+
 
 <body>
     <!-- Header -->
@@ -63,6 +99,59 @@
 
 
     <!-- Hero Section -->
+    <div class="swiper-container hero-swiper" style="padding-top: 20px;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url('blob:https://web.whatsapp.com/5d94af56-7596-4494-b04d-cedd7bef372a');">
+            <div class="slide-content">
+                <h1 class="heading-font mb-3">
+                    SheCare: Your Private AI Health Companion – 
+                    <span class="text-primary">On WhatsApp</span>
+                </h1>
+                <p class="mb-4" style="font-size: 1.1rem; color: var(--gray-600);">
+                    Because women's health shouldn't wait. SheCare is an AI-powered assistant built for women - 
+                    accessible anytime via WhatsApp. We help you check symptoms, find trusted clinics, and get 
+                    health guidance in a private, simple, and supportive way. No downloads. No stigma. 
+                    Just care - on your terms.
+                </p>
+                <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
+" target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
+                    <i class="fab fa-whatsapp"></i>
+                    <span> Talk to SheCare</span>
+                </a>
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image: url('https://i.natgeofe.com/n/18d82e7a-e435-4199-9426-6cdb8ec079da/Kenya4.jpg');">
+            <!-- slide content -->
+          </div>
+          <div class="swiper-slide" style="background-image: url('https://adumusafaris.com/wp-content/uploads/adumu-safaris-activities-cultural-excursions-16-821161558.jpg');">
+            <div class="slide-content">
+                <h1 class="heading-font mb-3">
+                    SheCare: Your Private AI Health Companion – 
+                    <span class="text-primary">On WhatsApp</span>
+                </h1>
+                <p class="mb-4" style="font-size: 1.1rem; color: var(--gray-600);">
+                    Because women's health shouldn't wait. SheCare is an AI-powered assistant built for women - 
+                    accessible anytime via WhatsApp. We help you check symptoms, find trusted clinics, and get 
+                    health guidance in a private, simple, and supportive way. No downloads. No stigma. 
+                    Just care - on your terms.
+                </p>
+                <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
+" target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
+                    <i class="fab fa-whatsapp"></i>
+                    <span> Talk to SheCare</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Add navigation arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      
+        <!-- If pagination dots desired -->
+        <div class="swiper-pagination"></div>
+      </div>
+      
     <section id="home" class="hero" style="padding-top: 90px;">
         <div class="container">
             <div class="grid grid-2">
@@ -518,6 +607,24 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Carousel section
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            },
+            effect: 'slide', // could be 'fade', 'cube', 'coverflow' etc
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            },
+        });
 
         // Toggle navigation when clicked
         const mobileMenuBtn = document.getElementById("mobileMenuBtn");
