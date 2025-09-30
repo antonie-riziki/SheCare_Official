@@ -73,7 +73,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
   
   /* Logo */
   .logo img {
-    height: 90px;
+    height: 60px;
     transition: transform 0.3s ease;
   }
   
@@ -291,7 +291,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
 
 /* Section-specific Styles */
 .hero {
-    margin-top: 5rem;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -505,5 +504,4 @@ img {
 .shadow { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
 
 
-/* Privacy Section */
 
