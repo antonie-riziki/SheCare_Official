@@ -69,6 +69,31 @@
 
 
 
+
+#privacy {
+  position: relative;
+  background: url('https://images.theconversation.com/files/580953/original/file-20240311-16-i7vt9b.jpg?ixlib=rb-4.1.0&rect=1068%2C772%2C4814%2C3206&q=20&auto=format&w=768&h=512&fit=crop&dpr=2&usm=12&cs=strip') 
+              no-repeat center center;
+  background-size: cover;
+  color: white; /* default text color */
+}
+
+#privacy::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* adjust darkness */
+  z-index: 0; /* stays behind content */
+}
+
+/* Ensure container/cards sit above overlay */
+#privacy .container {
+  position: relative;
+  z-index: 1;
+}
+
+
 </style>
 
 
@@ -339,33 +364,33 @@
         <div class="container">
             <div class="text-center mb-4 animate-fade-in">
                 <h2 class="heading-font mb-3">Built for Privacy. Designed with Care.</h2>
-                <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; color: var(--gray-200); max-width: 600px; margin: 0 auto;">
                     Your health information deserves the highest level of protection and respect
                 </p>
             </div>
             
             <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="text-center animate-fade-in" style="border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="text-center animate-fade-in" style="background: #f9f6f1; border: 2px solid white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i data-lucide="lock" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
                     </div>
-                    <h3 class="heading-font mb-2">Encrypted Chats</h3>
+                    <h3 class="heading-font mb-2" style="color: black;">Encrypted Chats</h3>  
                     <p class="text-gray">All conversations are protected with end-to-end encryption, just like regular WhatsApp messages</p>
                 </div>
                 
-                <div class="text-center animate-fade-in" style="animation-delay: 0.1s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="text-center animate-fade-in" style="background: #f9f6f1; animation-delay: 0.1s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i data-lucide="heart" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
                     </div>
-                    <h3 class="heading-font mb-2">Ethical AI</h3>
+                    <h3 class="heading-font mb-2" style="color: black">Ethical AI</h3>
                     <p class="text-gray">Our AI is trained on diverse, inclusive datasets and follows strict ethical guidelines for women's health</p>
                 </div>
                 
-                <div class="text-center animate-fade-in" style="animation-delay: 0.2s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <div class="text-center animate-fade-in" style="background: #f9f6f1; animation-delay: 0.2s; border: 2px solid var(--primary-color); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div style="width: 4rem; height: 4rem; background: rgba(255, 92, 141, 0.1); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
                         <i data-lucide="shield" style="width: 2rem; height: 2rem; color: var(--primary-coral);"></i>
                     </div>
-                    <h3 class="heading-font mb-2">Compliance First</h3>
+                    <h3 class="heading-font mb-2" style="color: black;">Compliance First</h3>
                     <p class="text-gray">We adhere to international healthcare privacy standards and local data protection regulations</p>
                 </div>
             </div>
