@@ -96,6 +96,43 @@
 
 
 
+.slide-contents {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+  color: white; /* default text color */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6); /* improves readability */
+}
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .slide-contents {
+    padding: 1rem;              /* reduce padding */
+    font-size: 0.9rem;          /* slightly smaller font */
+    line-height: 1.4;           /* tighter but still readable */
+    text-align: center;         /* center align for small screens */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* lighter shadow */
+  }
+
+  .slide-contents h1, 
+  .slide-contents h2, 
+  .slide-contents h3 {
+    font-size: 1.4rem;          /* headline scaling */
+  }
+
+  .slide-contents p {
+    font-size: 0.85rem;         /* smaller body text */
+    margin-top: 0.5rem;
+  }
+}
+
+
+
+
+
 #privacy {
   position: relative;
   background: url('https://images.theconversation.com/files/580953/original/file-20240311-16-i7vt9b.jpg?ixlib=rb-4.1.0&rect=1068%2C772%2C4814%2C3206&q=20&auto=format&w=768&h=512&fit=crop&dpr=2&usm=12&cs=strip') 
@@ -128,7 +165,8 @@
   background-size: cover;
   background-attachment: fixed;
   background-size: cover;
-  padding: 140px 0px;
+  height: 100%;
+  padding: 100px 0px;
 }
 
 
@@ -171,14 +209,13 @@
           <div class="swiper-slide" style="background-image: url('static/img/WhatsApp Image 2025-09-28 at 5.13.29 PM.jpeg');">
             <div class="slide-content">
                 <h1 class="heading-font mb-3">
-                    SheCare: Your Private AI Health Companion – 
+                    Women’s Health Matters -
                     <span class="text-primary">On WhatsApp</span>
                 </h1>
                 <p class="mb-4">
-                    Because women's health shouldn't wait. SheCare is an AI-powered assistant built for women - 
-                    accessible anytime via WhatsApp. We help you check symptoms, find trusted clinics, and get 
-                    health guidance in a private, simple, and supportive way. No downloads. No stigma. 
-                    Just care - on your terms.
+                    Every day, thousands of women in Kenya face health challenges like cervical cancer, 
+                    ovarian cysts, and mental stress — but many suffer in silence. SheCare makes it easier 
+                    to seek guidance privately, without fear or stigma.
                 </p>
                 <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
 " target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
@@ -194,10 +231,10 @@
                     <!-- <span class="text-primary">On WhatsApp</span> -->
                 </h1>
                 <p class="mb-4" style="font-size: 1.1rem; color: #fff; line-height: 25px; font-weight: 500px; padding-bottom: 50px; text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);">
-                    Because women's health shouldn't wait. SheCare is an AI-powered assistant <br>built for women - 
-                    accessible anytime via WhatsApp. <br>We help you check symptoms, find trusted clinics, and get 
-                    health guidance in a private, <br>simple, and supportive way. No downloads. No stigma. 
-                    Just care - on your terms.
+                    SheCare is more than just an app, it’s your always-available health ally<br>From checking symptoms and 
+                    finding trusted clinics, to sharing tips and connecting <br> you with supportive communities, <br>SheCare walks with you every step of your health journey<br> 
+                    simple, and supportive way. No downloads. No stigma. 
+                    privately, simply, and with care.
                 </p>
                 <!-- <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
 " target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
@@ -209,14 +246,12 @@
           <div class="swiper-slide" style="background-image: url('static/img/WhatsApp Image 2025-09-28 at 5.13.28 PM (2).jpeg');">
             <div class="slide-content">
                 <h1 class="heading-font mb-3">
-                    SheCare: Your Private AI Health Companion – 
-                    <span class="text-primary">On WhatsApp</span>
+                    Building Safe  
+                    <span class="text-primary">Communities</span>
                 </h1>
                 <p class="mb-4" style="font-size: 1.1rem; color: #fff;">
-                    Because women's health shouldn't wait. SheCare is an AI-powered assistant built for women - 
-                    accessible anytime via WhatsApp. We help you check symptoms, find trusted clinics, and get 
-                    health guidance in a private, simple, and supportive way. No downloads. No stigma. 
-                    Just care - on your terms.
+                    Beyond AI, SheCare connects women in safe peer-support spaces — where stories, strength, 
+                    and hope are shared, ensuring no woman feels alone in her health journey.
                 </p>
                 <a href="https://wa.me/254706954530?text=Hello%20SheCare,%20I%20would%20like%20to%20learn%20more%20about%20women%E2%80%99s%20health%20and%20get%20guidance%20privately.
 " target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--accent-teal); font-size: 0.9rem; line-height: 1; gap: 0.5rem;">
@@ -256,9 +291,9 @@
                     </a>
                 </div>
                 <div class="hero-image animate-slide-right">
-                  <img src="https://shecare-nu.vercel.app/images/4.png" 
+                  <img src="static/img/WhatsApp_Image_2025-10-01_at_9.20.26_PM-removebg-preview.png" 
                        alt="SheCare AI chat conversation mockup" 
-                       style="border-radius: 1rem; height: 100%;">
+                       style="border-radius: 1rem; height: 550px; width: 550px;">
                 </div>
 
                     <!-- <img src="./images/sheCare mockup.jpeg" 
@@ -284,7 +319,8 @@
                             </div>
                             <div style="margin-left: 1rem;">
                                 <h3 class="heading-font mb-1">Check Symptoms Privately</h3>
-                                <p class="text-gray">Get confidential health assessments in a safe space</p>
+                                <p class="text-gray">Check early signs of reproductive health concerns (like cervical cancer or ovarian cysts) privately. 
+                                    Get guidance that helps you take the next step with confidence.</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: start;">
@@ -293,7 +329,7 @@
                             </div>
                             <div style="margin-left: 1rem;">
                                 <h3 class="heading-font mb-1">Find Nearby Clinics</h3>
-                                <p class="text-gray">Locate trusted healthcare providers in your area</p>
+                                <p class="text-gray">Find verified, affordable clinics near you—fast. No endless searching, just clear options you can trust.</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: start;">
@@ -302,7 +338,7 @@
                             </div>
                             <div style="margin-left: 1rem;">
                                 <h3 class="heading-font mb-1">Get Daily Health Tips</h3>
-                                <p class="text-gray">Receive personalized wellness guidance</p>
+                                <p class="text-gray">Learn about reproductive health, nutrition, mental wellness, and lifestyle habits through simple daily messages.</p>
                             </div>
                         </div>
                         <div style="display: flex; align-items: start;">
@@ -311,16 +347,16 @@
                             </div>
                             <div style="margin-left: 1rem;">
                                 <h3 class="heading-font mb-1">Join a Safe Support Community</h3>
-                                <p class="text-gray">Connect with other women on their health journey</p>
+                                <p class="text-gray">Connect anonymously with other women, share experiences, and feel heard in a moderated, stigma-free space.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="animate-slide-right">
-                  <img src="https://shecare-nu.vercel.app/images/5.png" 
+                  <img src="static/img/Gemini_Generated_Image_3yw8783yw8783yw8.png" 
                        alt="SheCare Features card" 
-                       style="max-width: 100%; border-radius: 1rem; display: block; margin: 0 auto; height: 580px;">
+                       style="max-width: 100%; border-radius: 1rem; display: block; margin: 0 auto; height: 500px;">
                 </div>
 
             </div>
@@ -332,18 +368,18 @@
         <div class="container">
             <div class="grid grid-2">
                 <div class="animate-slide-left">
-                    <img src="https://shecare-nu.vercel.app/images/sheCare%20mockup%202.png" 
+                    <img src="static/img/WhatsApp_Image_2025-10-01_at_9.20.26_PM__2_-removebg-preview.png" 
                          alt="Woman using WhatsApp" 
                          style="border-radius: 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
                 </div>
                 <div class="animate-slide-right">
-                    <h2 class="heading-font mb-3">Why WhatsApp? Because It Works.</h2>
+                    <h2 class="heading-font mb-3">Why WhatsApp? <br>Because It Works.</h2>
                     <div style="font-size: 1.1rem; line-height: 1.8;">
                         <p style="margin-bottom: 1.5rem;">
-                            In Kenya, WhatsApp isn't just an app – it's how we communicate. With over 
-                            <strong>90% of smartphone users</strong> already on WhatsApp, SheCare meets 
+                            In Kenya alone, over 30+ million people use WhatsApp -  of which <strong>15M are women.</strong> We’re meeting women exactly where they already are.</p> 
+                            <!-- <strong>90% of smartphone users</strong> already on WhatsApp, SheCare meets 
                             women where they are.
-                        </p>
+                        </p> -->
                         <p style="margin-bottom: 1.5rem;">
                             No new downloads. No complicated signups. No learning curves. Just send a 
                             message and get the health support you deserve, instantly.
@@ -372,46 +408,55 @@
                 <div class="step-card animate-fade-in">
                     <div class="step-number">01</div>
                     <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <i data-lucide="message-circle" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
+                        <i data-lucide="message-circle" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
                         <h3 class="heading-font">Say Hello on WhatsApp</h3>
                     </div>
-                    <p class="text-gray">Start a conversation with SheCare on your familiar WhatsApp</p>
+                    <p class="text-gray">Tap the SheCare link and start chatting instantly — no downloads needed.</p>
                 </div>
                 
                 <div class="step-card animate-fade-in" style="animation-delay: 0.1s;">
                     <div class="step-number">02</div>
                     <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <i data-lucide="file-text" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
-                        <h3 class="heading-font">Share Your Symptoms</h3>
+                        <i data-lucide="file-text" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
+                        <h3 class="heading-font">Share Your Symptoms or Questions</h3>
                     </div>
-                    <p class="text-gray">Describe what you're experiencing in your own words</p>
+                    <p class="text-gray">Type, speak, or send a voice note in English or Swahili</p>
                 </div>
                 
                 <div class="step-card animate-fade-in" style="animation-delay: 0.2s;">
                     <div class="step-number">03</div>
                     <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <i data-lucide="brain" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
-                        <h3 class="heading-font">Get AI Guidance</h3>
+                        <i data-lucide="brain" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
+                        <h3 class="heading-font">Get Instant, AI-Powered Guidance </h3>
                     </div>
-                    <p class="text-gray">Receive personalized health insights and recommendations</p>
+                    <p class="text-gray">Receive personalized health guidance powered by trusted data.</p>
                 </div>
-                
+
                 <div class="step-card animate-fade-in" style="animation-delay: 0.3s;">
                     <div class="step-number">04</div>
                     <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <i data-lucide="map-pin" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
-                        <h3 class="heading-font">Find Clinics</h3>
+                        <i data-lucide="map-pin" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
+                        <h3 class="heading-font">Access Prescription Support</h3>
                     </div>
-                    <p class="text-gray">Get referrals to trusted healthcare providers near you</p>
+                    <p class="text-gray">Scan prescriptions and get connected to nearby pharmacies</p>
                 </div>
                 
                 <div class="step-card animate-fade-in" style="animation-delay: 0.4s;">
                     <div class="step-number">05</div>
                     <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <i data-lucide="users" style="color: var(--primary-coral); margin-right: 0.5rem;"></i>
-                        <h3 class="heading-font">Join the Circle</h3>
+                        <i data-lucide="home" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
+                        <h3 class="heading-font">Clinic Referrals when needed</h3>
                     </div>
-                    <p class="text-gray">Connect with a supportive community of women</p>
+                    <p class="text-gray">Get referred to verified, affordable clinics near you</p>
+                </div>
+                
+                <div class="step-card animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="step-number">06</div>
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <i data-lucide="users" style="color: var(--primary-coral); margin-right: 0.5rem; width: 28px; height: 28px;"></i>
+                        <h3 class="heading-font">Join the SheCare Circle</h3>
+                    </div>
+                    <p class="text-gray">Join a safe community for anonymous peer support</p>
                 </div>
             </div>
         </div>
