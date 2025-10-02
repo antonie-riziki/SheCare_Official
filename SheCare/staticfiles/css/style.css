@@ -420,9 +420,10 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
     width: 100%;
     padding: 1.5rem;
     border: none;
+    font-family: 'Inter', sans-serif;
     background: none;
     text-align: left;
-    font-weight: 1000;
+    font-weight: 700;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
